@@ -5,15 +5,16 @@
 
 class Stack {
 	class Node {
-		friend class Stack;
-		std::string n;
+	public:
+		std::string str;
 		Node * prev;
 	};
 public:
-	Stack();
+	Stack() : top(new Node()), size(0) {}
+	~Stack() { this->clear(); delete top; }
 	void push(const std::string &);
 	std::string pop();
-	std::string back();
+	unsigned getSize() const { return size; }
 	void clear();
 private:
 	Node * top;

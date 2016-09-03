@@ -3,13 +3,8 @@
 
 using namespace std;
 
-Stack::Stack() {
-	top = new Node();
-	size = 0;
-}
-
 void Stack::push(const string & str) {
-	top->n = str;
+	top->str = str;
 	Node * temp = top;
 	top = new Node();
 	top->prev = temp;
@@ -20,11 +15,7 @@ string Stack::pop() {
 	top = top->prev;
 	delete temp;
 	size--;
-	return top->n;
-}
-
-string Stack::back() {
-	return top->prev->n;
+	return top->str;
 }
 
 void Stack::clear() {
